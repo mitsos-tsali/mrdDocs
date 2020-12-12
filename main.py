@@ -9,9 +9,9 @@ def run():
     else:
         df_list = []
         for filename in glob.glob("Docs/*.xlsx"):
-            temp_df = pd.read_excel(filename)
+            temp_df = pd.read_excel(filename,skiprows=1)
             df_list.append(temp_df)
-        df = pd.concat(df_list, axis=1)
+        df = pd.concat(df_list)
         df.to_excel("Final.xlsx")
 
 
